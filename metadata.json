@@ -1,0 +1,6 @@
+{
+  "name": "TailorCraft - Customer Order & Measurements Management System",
+  "description": "Comprehensive digital solution for tailoring shops to record customer profiles, body measurements, track garment orders, manage payments, and streamline atelier operations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
