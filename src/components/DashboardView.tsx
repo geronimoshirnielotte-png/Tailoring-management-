@@ -49,63 +49,54 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
   return (
     <div className="space-y-8 pb-12">
-      {/* Editorial Atelier Banner */}
-      <div className="relative overflow-hidden rounded-xl border border-slate-200 bg-white">
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[260px]">
-          <div className="p-6 sm:p-8 lg:col-span-7 flex flex-col justify-between">
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 text-xs text-amber-800 font-medium">
-                <span>{settings.shopName}</span>
-                <span aria-hidden="true">·</span>
-                <span>Production Operations</span>
-                <span aria-hidden="true">·</span>
-                <span>Role: {settings.activeRole === 'master_tailor' ? 'Master Tailor' : 'Assistant Cutter'}</span>
-              </div>
-              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 leading-tight">
-                Customer Order and Measurements Management System
-              </h1>
-              <p className="text-sm text-slate-600 max-w-xl leading-relaxed">
-                Centralized digital platform replacing paper notebooks and index cards. Track bespoke orders, preserve body measurements, monitor deadlines, and maintain financial records with zero lost data.
-              </p>
-            </div>
+      {/* Editorial Atelier Banner with Tailoring Shop Background */}
+      <div className="relative overflow-hidden rounded-xl border border-slate-800 bg-slate-950 text-white min-h-[280px] flex flex-col justify-between p-6 sm:p-10 shadow-md">
+        {/* Tailoring shop background image with measured scrim */}
+        <img
+          src="/src/assets/images/atelier_tailor_workshop_1793279565070.jpg"
+          alt="Tailoring shop workshop background"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-30 pointer-events-none"
+          referrerPolicy="no-referrer"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/50 pointer-events-none" />
 
-            <div className="pt-6 flex flex-wrap items-center gap-3">
-              <button
-                onClick={onOpenNewOrder}
-                className="px-4 py-2 text-xs font-semibold text-white bg-slate-900 rounded-lg hover:bg-slate-800 transition-colors shadow-sm flex items-center gap-2"
-              >
-                <span>+ Create Garment Order</span>
-              </button>
-              <button
-                onClick={onOpenNewCustomer}
-                className="px-4 py-2 text-xs font-semibold text-slate-700 bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors flex items-center gap-1.5"
-              >
-                <UserPlus className="w-3.5 h-3.5" />
-                <span>Register Customer Profile</span>
-              </button>
-              <button
-                onClick={() => onNavigate('research')}
-                className="px-4 py-2 text-xs font-medium text-amber-900 bg-amber-50 rounded-lg hover:bg-amber-100 transition-colors flex items-center gap-1.5"
-              >
-                <FileText className="w-3.5 h-3.5" />
-                <span>View Research Study & Objectives</span>
-              </button>
-            </div>
+        <div className="relative z-10 max-w-2xl space-y-3">
+          <div className="flex items-center gap-2 text-xs text-amber-300 font-medium tracking-wide">
+            <span>{settings.shopName}</span>
+            <span aria-hidden="true">·</span>
+            <span>Atelier & Bespoke Tailoring Suite</span>
+            <span aria-hidden="true">·</span>
+            <span className="text-slate-300">Role: {settings.activeRole === 'master_tailor' ? 'Master Tailor' : 'Assistant Cutter'}</span>
           </div>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-white leading-tight">
+            Customer Order and Measurements Management System
+          </h1>
+          <p className="text-sm text-slate-300 leading-relaxed max-w-xl">
+            Centralized digital platform replacing paper notebooks and loose index cards. Track bespoke orders, preserve body measurements, monitor deadlines, and maintain financial records with zero lost data.
+          </p>
+        </div>
 
-          <div className="relative lg:col-span-5 h-56 lg:h-auto overflow-hidden bg-slate-100 border-t lg:border-t-0 lg:border-l border-slate-200">
-            <img
-              src="/src/assets/images/atelier_tailor_workshop_1793279565070.jpg"
-              alt="Bespoke atelier workshop cutting table"
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
-            <div className="absolute bottom-3 left-4 right-4 text-xs text-white/90 font-medium drop-shadow-sm flex items-center justify-between">
-              <span>Bespoke Cutting Room & Fitting Bench</span>
-              <span className="tabular-nums">{activeOrders.length} In-Progress Garments</span>
-            </div>
-          </div>
+        <div className="relative z-10 pt-6 flex flex-wrap items-center gap-3">
+          <button
+            onClick={onOpenNewOrder}
+            className="px-4 py-2 text-xs font-semibold text-slate-950 bg-amber-400 rounded-lg hover:bg-amber-300 transition-colors shadow-sm flex items-center gap-2"
+          >
+            <span>+ Create Garment Order</span>
+          </button>
+          <button
+            onClick={onOpenNewCustomer}
+            className="px-4 py-2 text-xs font-semibold text-white bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg hover:bg-white/20 transition-colors flex items-center gap-1.5"
+          >
+            <UserPlus className="w-3.5 h-3.5" />
+            <span>Register Customer Profile</span>
+          </button>
+          <button
+            onClick={() => onNavigate('research')}
+            className="px-4 py-2 text-xs font-medium text-slate-200 bg-slate-800/80 hover:bg-slate-800 border border-slate-700 rounded-lg transition-colors flex items-center gap-1.5"
+          >
+            <FileText className="w-3.5 h-3.5" />
+            <span>View Research Study & Objectives</span>
+          </button>
         </div>
       </div>
 
